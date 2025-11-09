@@ -12,8 +12,45 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: 'map', // ID of the div where the map will render
   style: 'mapbox://styles/mapbox/streets-v12', // Map style
-  center: [-70.97795, 42.3633373], // [longitude, latitude]
+  center: [-71.05653723995204, 42.35724238998872], // [longitude, latitude]
   zoom: 12, // Initial zoom level
   minZoom: 5, // Minimum allowed zoom
   maxZoom: 18, // Maximum allowed zoom
+});
+
+map.on('load', async () => {
+  //code
+  console.log('Map loaded');
+
+  map.addSource('boston_route', {
+    type: 'geojson',
+    data: 'https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::existing-bike-network-2022.geojson',
+  });
+
+  map.addSource('cambridge-route', {
+    type: 'geojson',
+    data: '../data/RECREATION_BikeFacilities.geojson',
+  });
+
+  map.addLayer({
+    id: 'bike-lanes-boston',
+    type: 'line',
+    source: 'boston_route',
+    paint: {
+      'line-color': '#32D400', // A bright green using hex code
+      'line-width': 5, // Thicker lines
+      'line-opacity': 0.6, // Slightly less transparent
+    },
+  });
+
+  map.addLayer({
+    id: 'bike-lanes-cambridge',
+    type: 'line',
+    source: 'cambridge-route',
+    paint: {
+      'line-color': '#32D400', // A bright green using hex code
+      'line-width': 5, // Thicker lines
+      'line-opacity': 0.6, // Slightly less transparent
+    },
+  });
 });
