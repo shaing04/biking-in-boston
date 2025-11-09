@@ -16,11 +16,19 @@
     <title>Biking in Boston</title>
   </head>
   <body>
-    <h1>🚴🏼‍♀️ Biking in Boston</h1>
-    <p>
-      An interative map of bike traffic in the Boston area during different
-      times of day
-    </p>
+    <header>
+      <h1>Bluebikes Traffic Map</h1>
+
+      <!--<p>An interactive map of bike traffic in the Boston area.</p>-->
+
+      <!-- Time filter slider -->
+      <label class="time-filter">
+        Filter by time:
+        <input type="range" min="-1" max="1440" value="-1" id="timeSlider" />
+        <time id="selectedTime">Any time</time>
+        <em id="anyTime">(any time)</em>
+      </label>
+    </header>
 
     <div id="map">
       <svg></svg>
