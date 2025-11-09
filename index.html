@@ -17,17 +17,21 @@
   </head>
   <body>
     <header>
-      <h1>Bluebikes Traffic Map</h1>
+      <h1>🚴🏼‍♀️Biking in Boston</h1>
 
       <!--<p>An interactive map of bike traffic in the Boston area.</p>-->
 
       <!-- Time filter slider -->
-      <label class="time-filter">
-        Filter by time:
-        <input type="range" min="-1" max="1440" value="-1" id="timeSlider" />
-        <time id="selectedTime">Any time</time>
-        <em id="anyTime">(any time)</em>
-      </label>
+      <div class="time-filter">
+        <div class="slider-row">
+          <label for="timeSlider">Filter by time:</label>
+          <input type="range" min="-1" max="1440" value="-1" id="timeSlider" />
+        </div>
+        <div class="time-stack">
+          <time id="selectedTime">Any Time</time>
+          <em id="anyTime">(any time)</em>
+        </div>
+      </div>
     </header>
 
     <div id="map">
