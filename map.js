@@ -84,7 +84,7 @@ map.on('load', async () => {
 
   map.addSource('cambridge-route', {
     type: 'geojson',
-    data: 'biking-in-boston/data/RECREATION_BikeFacilities.geojson',
+    data: 'data/RECREATION_BikeFacilities.geojson',
   });
 
   // Add bike lane layers
@@ -115,7 +115,7 @@ map.on('load', async () => {
 
   try {
     // Load station JSON
-    const jsonurl = 'biking-in-boston/data/bluebikes-stations.json';
+    const jsonurl = 'data/bluebikes-stations.json';
     const jsonData = await d3.json(jsonurl);
 
     // Load trips CSV and parse dates
